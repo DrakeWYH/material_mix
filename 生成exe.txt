@@ -1,0 +1,10 @@
+pyinstaller -F fileName.py --noconsole
+
+若出现RecursionError: maximum recursion depth exceeded 错误
+修改fileName.spec文件，添加两句
+import sys
+sys.setrecursionlimit(1000000)
+再重新执行
+pyinstaller -F fileName.spec --noconsole
+
+pyinstaller -F -c QTimerTest.py --hidden-import sklearn.neighbors.typedefs --hidden-import sklearn.neighbors.quad_tree --hidden-import pywt._extensions._cwt --hidden-import sklearn.tree._utils
